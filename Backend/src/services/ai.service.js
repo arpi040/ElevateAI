@@ -1,10 +1,15 @@
 const { GoogleGenAI } = require("@google/genai");
 
 const puppeteer = require("puppeteer");
-
+const fs = require("fs");
 const ai = new GoogleGenAI({
   apiKey: process.env.GOOGLE_GENAI_API_KEY,
 });
+
+const executablePath = await puppeteer.executablePath();
+
+console.log("Executable path:", executablePath);
+console.log("Exists:", fs.existsSync(executablePath));
 
 async function generateInterviewReport({
   resume,
