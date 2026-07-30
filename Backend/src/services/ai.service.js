@@ -2,7 +2,9 @@ const { GoogleGenAI } = require("@google/genai");
 
 const puppeteer = require("puppeteer");
 
-console.log("Puppeteer executable path:", puppeteer.executablePath());
+(async () => {
+  console.log("Puppeteer executable path:", await puppeteer.executablePath());
+})();
 const ai = new GoogleGenAI({
   apiKey: process.env.GOOGLE_GENAI_API_KEY,
 });
