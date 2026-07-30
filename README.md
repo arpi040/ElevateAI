@@ -78,29 +78,6 @@ AI-powered career preparation platform that analyzes your resume and target job 
 - REST API
 - Cookie-based Authentication
 
-
-  +--------------------+
-                |    React (Vite)    |
-                +----------+---------+
-                           |
-                     Axios REST APIs
-                           |
-                +----------v---------+
-                |    Express.js      |
-                +----------+---------+
-                           |
-        +------------------+------------------+
-        |                  |                  |
-        |                  |                  |
-     MongoDB          Gemini AI         Puppeteer
-        |                  |                  |
-        |          Interview Plan      ATS Resume PDF
-        |          Skill Gaps
-        |          Match Score
-        +--------------------------------------+
-
-
-
 ## 💡 Highlights
 
 ✔ AI-powered resume analysis
