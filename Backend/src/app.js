@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://elevate-ai-git-main-appi2.vercel.app",
   "https://elevate-ai-appi2.vercel.app",
 ];
 

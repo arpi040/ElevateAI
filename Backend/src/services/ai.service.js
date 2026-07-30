@@ -141,7 +141,8 @@ async function generatePdfFromHtml(htmlContent) {
 }
 
 async function generateResumePdf({ resume, selfDescription, jobDescription }) {
-  const prompt = `Generate resume for a candidate with the following details:
+  try {
+    const prompt = `Generate resume for a candidate with the following details:
                         Resume: ${resume}
                         Self Description: ${selfDescription}
                         Job Description: ${jobDescription}
@@ -162,20 +163,25 @@ Do not wrap the JSON in markdown.
 Do not add explanations.
                     `;
 
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash-lite",
-    contents: prompt,
-    config: {
-      responseMimeType: "application/json",
-    },
-  });
+    const response = await ai.models.generateContent({
+      model: "gemini-3.5-flash-lite",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+      },
+    });
 
-  const text = response.candidates[0].content.parts[0].text;
-  const jsonContent = JSON.parse(text);
+    const text = response.candidates[0].content.parts[0].text;
+    const jsonContent = JSON.parse(text);
 
-  const pdfBuffer = await generatePdfFromHtml(jsonContent.html);
+    const pdfBuffer = await generatePdfFromHtml(jsonContent.html);
 
-  return pdfBuffer;
+    return pdfBuffer;
+  } catch (err) {
+    console.error("generateResumePdf failed:");
+    console.error(err);
+    throw err;
+  }
 }
 
 module.exports = { generateInterviewReport, generateResumePdf };
