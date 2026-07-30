@@ -126,7 +126,7 @@ Rules:
 async function generatePdfFromHtml(htmlContent) {
   console.log("Starting PDF generation");
   const browser = await puppeteer.launch({
-    executablePath: puppeteer.executablePath(),
+    executablePath: await puppeteer.executablePath(),
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
