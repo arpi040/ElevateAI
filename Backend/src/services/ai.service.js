@@ -2,6 +2,7 @@ const { GoogleGenAI } = require("@google/genai");
 
 const puppeteer = require("puppeteer");
 
+console.log("Puppeteer executable path:", puppeteer.executablePath());
 const ai = new GoogleGenAI({
   apiKey: process.env.GOOGLE_GENAI_API_KEY,
 });
@@ -123,6 +124,7 @@ Rules:
 async function generatePdfFromHtml(htmlContent) {
   const browser = await puppeteer.launch({
     headless: true,
+    cacheDirectory: "/opt/render/.cache/puppeteer",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
