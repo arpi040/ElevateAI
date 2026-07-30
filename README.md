@@ -79,7 +79,7 @@ AI-powered career preparation platform that analyzes your resume and target job 
 - Cookie-based Authentication
 
 
-                +--------------------+
+  +--------------------+
                 |    React (Vite)    |
                 +----------+---------+
                            |
@@ -99,33 +99,6 @@ AI-powered career preparation platform that analyzes your resume and target job 
         |          Match Score
         +--------------------------------------+
 
-
-  ElevateAI
-│
-├── Backend
-│   ├── src
-│   │   ├── config
-│   │   ├── controllers
-│   │   ├── middlewares
-│   │   ├── models
-│   │   ├── routes
-│   │   ├── services
-│   │   └── app.js
-│   ├── server.js
-│   └── package.json
-│
-├── Frontend
-│   ├── public
-│   ├── src
-│   │   ├── features
-│   │   │   ├── auth
-│   │   │   └── interview
-│   │   ├── styles
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
-│
-└── README.md
 
 
 ## 💡 Highlights
