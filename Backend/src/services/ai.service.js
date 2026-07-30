@@ -124,13 +124,17 @@ Rules:
 }
 
 async function generatePdfFromHtml(htmlContent) {
+  console.log("Starting PDF generation");
   const browser = await puppeteer.launch({
+    executablePath: puppeteer.executablePath(),
     headless: true,
-    cacheDirectory: "/opt/render/.cache/puppeteer",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
+  console.log("Browser launched");
   const page = await browser.newPage();
+  console.log("Page created");
   await page.setContent(htmlContent, { waitUntil: "networkidle0" });
+  console.log("HTML loaded");
 
   const pdfBuffer = await page.pdf({
     format: "A4",
@@ -141,7 +145,7 @@ async function generatePdfFromHtml(htmlContent) {
       right: "15mm",
     },
   });
-
+  console.log("PDF created");
   await browser.close();
 
   return pdfBuffer;
